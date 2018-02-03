@@ -31,7 +31,7 @@ function OpenShopMenu(zone)
 		local item = Config.Zones[zone].Items[i]
 
 		table.insert(elements, {
-			label     = item.label .. ' - <span style="color:green;">$' .. item.price .. ' </span>',
+			label     = item.label .. ' - $' .. item.price,
 			realLabel = item.label,
 			value     = item.name,
 			price     = item.price
@@ -45,7 +45,8 @@ function OpenShopMenu(zone)
 	ESX.UI.Menu.Open(
 		'default', GetCurrentResourceName(), 'shop',
 		{
-			title  = _U('shop'),
+			title    = _U('shop'),
+			align    = 'bottom-right',
 			elements = elements
 		},
 		function(data, menu)
