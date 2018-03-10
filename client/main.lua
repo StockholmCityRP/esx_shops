@@ -98,7 +98,7 @@ end)
 -- Display markers
 Citizen.CreateThread(function()
   while true do
-    Wait(0)
+    Citizen.Wait(10)
     local coords = GetEntityCoords(GetPlayerPed(-1))
     for k,v in pairs(Config.Zones) do
       for i = 1, #v.Pos, 1 do
@@ -113,7 +113,7 @@ end)
 -- Enter / Exit marker events
 Citizen.CreateThread(function()
 	while true do
-		Wait(0)
+		Citizen.Wait(10)
 		local coords      = GetEntityCoords(GetPlayerPed(-1))
 		local isInMarker  = false
 		local currentZone = nil
@@ -142,7 +142,7 @@ end)
 -- Key Controls
 Citizen.CreateThread(function()
   while true do
-    Citizen.Wait(0)
+    Citizen.Wait(10)
     if CurrentAction ~= nil then
 
       SetTextComponentFormat('STRING')
