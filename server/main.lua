@@ -12,7 +12,7 @@ AddEventHandler('onMySQLReady', function()
 
 			for i=1, #result, 1 do
 				ItemsLabels[result[i].name] = result[i].label
-			end--
+			end
 
 		end
 	)
