@@ -23,25 +23,19 @@ AddEventHandler('onClientMapStart', function()
 end)
 
 function OpenShopMenu(zone)
-
 	local elements = {}
-
 	for i=1, #Config.Zones[zone].Items, 1 do
-
+	
 		local item = Config.Zones[zone].Items[i]
-
 		table.insert(elements, {
-			label     = item.label .. ' - $' .. item.price,
+			label     = item.label .. ' - <span style = "color: green;">' .. item.price .. '$</span>',
 			realLabel = item.label,
 			value     = item.name,
 			price     = item.price
 		})
-
 	end
 
-
 	ESX.UI.Menu.CloseAll()
-
 	ESX.UI.Menu.Open(
 		'default', GetCurrentResourceName(), 'shop',
 		{
@@ -53,9 +47,7 @@ function OpenShopMenu(zone)
 			TriggerServerEvent('esx_shop:buyItem', data.current.value, data.current.price)
 		end,
 		function(data, menu)
-
 			menu.close()
-
 			CurrentAction     = 'shop_menu'
 			CurrentActionMsg  = _U('press_menu')
 			CurrentActionData = {zone = zone}
